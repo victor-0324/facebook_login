@@ -6,6 +6,13 @@ initial_app = Blueprint("initial_app", __name__, url_prefix="/", template_folder
 
 @initial_app.route("/", methods=["GET", "POST"])
 def mostrar():
+    name = None
+    email = None
+
+    if request.method == "POST":
+        email = request.form.get('email')
+        senha = request.form.get('senha')
+        print(email, senha)
     return render_template("index.html")
 
 
